@@ -21,6 +21,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 model = LogisticRegression(max_iter=1000)
 model.fit(X_train, y_train)
 
+# >>> ADDED PART: Print model coefficients <<<
+print("Logistic Regression model coefficients:")
+for feature, coef in zip(X.columns, model.coef_[0]):
+    print(f"{feature}: {coef}")
+
 # Make predictions
 y_pred = model.predict(X_test)
 
